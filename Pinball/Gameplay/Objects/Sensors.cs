@@ -7,6 +7,7 @@ using FarseerGames.FarseerPhysics.Dynamics;
 using FarseerGames.FarseerPhysics.Collisions;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using FarseerGames.FarseerPhysics.Factories;
 
 namespace Pinball
 {
@@ -67,78 +68,78 @@ namespace Pinball
 
             // Red Sensor One
             base.Geom[0] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 9f, 4, new Vector2(30, 33) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[0].Collision += RedSensorOneCollisionHandler;
+            base.Geom[0].OnCollision += RedSensorOneCollisionHandler;
 
             // Orange Sensor One
             base.Geom[1] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(38, 256) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[1].Collision += OrangeSensorOneCollisionHandler;
+            base.Geom[1].OnCollision += OrangeSensorOneCollisionHandler;
 
             // Yellow Sensor One
             //base.Geom[2] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(122, 94) - new Vector2(120, 160), 0f, 6f);
             //base.Geom[2] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(125, 85) - new Vector2(120, 160), 0f, 6f);
             base.Geom[2] = GeomFactory.Instance.CreatePolygonGeom(physicsSimulator, base.Body, CreateYellowOneVertices(), 1f);
-            base.Geom[2].Collision += YellowSensorOneCollisionHandler;
+            base.Geom[2].OnCollision += YellowSensorOneCollisionHandler;
 
             // TODO: Delete Later
             // Green Sensor One
             //base.Geom[3] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(128, 79) - new Vector2(120, 160), 0f, 6f);
-            //base.Geom[3].Collision += GreenSensorOneCollisionHandler;
+            //base.Geom[3].OnCollision += GreenSensorOneCollisionHandler;
 
             // Light Blue Sensor One
             base.Geom[3] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(195, 167) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[3].Collision += LightBlueSensorOneCollisionHandler;
+            base.Geom[3].OnCollision += LightBlueSensorOneCollisionHandler;
 
             // Blue Sensor One
             //base.Geom[4] = GeomFactory.Instance.CreatePolygonGeom(physicsSimulator, base.Body, CreateBlueOneVertices(), 1f);
             base.Geom[4] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 7f, 10, new Vector2(199, 112) - new Vector2(120, 160), 0f, 2f);
             //base.Geom[4] = GeomFactory.Instance.CreateRectangleGeom(physicsSimulator, base.Body, 18, 5, new Vector2(198, 114) - new Vector2(120, 160), 0f, 2f); 
-            base.Geom[4].Collision += BlueSensorOneCollisionHandler;
+            base.Geom[4].OnCollision += BlueSensorOneCollisionHandler;
 
             // TODO: Delete Later
             //// Magenta Sensor One
             //base.Geom[5] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(205, 105) - new Vector2(120, 160), 0f, 6f);
-            //base.Geom[5].Collision += MagentaSensorOneCollisionHandler;
+            //base.Geom[5].OnCollision += MagentaSensorOneCollisionHandler;
 
             // Red Sensor Two
             base.Geom[5] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(190, 257) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[5].Collision += RedSensorTwoCollisionHandler;
+            base.Geom[5].OnCollision += RedSensorTwoCollisionHandler;
 
             // Orange Sensor Two
             base.Geom[6] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 6f, 4, new Vector2(42, 53) - new Vector2(120, 160), 0f, 2f);
-            base.Geom[6].Collision += OrangeSensorTwoCollisionHandler;
+            base.Geom[6].OnCollision += OrangeSensorTwoCollisionHandler;
 
             // Yellow Sensor Two
             base.Geom[7] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 5f, 4, new Vector2(75, 26) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[7].Collision += YellowSensorTwoCollisionHandler;
+            base.Geom[7].OnCollision += YellowSensorTwoCollisionHandler;
 
             // Green Sensor Two
             base.Geom[8] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(10, 17) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[8].Collision += GreenSensorTwoCollisionHandler;
+            base.Geom[8].OnCollision += GreenSensorTwoCollisionHandler;
 
             // Light Blue Sensor Two
             base.Geom[9] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(140, 122) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[9].Collision += LightBlueSensorTwoCollisionHandler;
+            base.Geom[9].OnCollision += LightBlueSensorTwoCollisionHandler;
 
             // Blue Sensor Two
             base.Geom[10] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 6, new Vector2(188, 189) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[10].Collision += BlueSensorTwoCollisionHandler;
+            base.Geom[10].OnCollision += BlueSensorTwoCollisionHandler;
 
             // Magenta Sensor Two
             base.Geom[11] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(24, 294) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[11].Collision += MagentaSensorTwoCollisionHandler;
+            base.Geom[11].OnCollision += MagentaSensorTwoCollisionHandler;
 
             // Red Sensor Three
             base.Geom[12] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 4f, 4, new Vector2(204, 287) - new Vector2(120, 160), 0f, 6f);
-            base.Geom[12].Collision += RedSensorThreeCollisionHandler;
+            base.Geom[12].OnCollision += RedSensorThreeCollisionHandler;
 
             // Orange Sensor Three
             //base.Geom[13] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 8f, 4, new Vector2(207, 24) - new Vector2(120, 160), 0f, 8f);
             base.Geom[13] = GeomFactory.Instance.CreatePolygonGeom(physicsSimulator, base.Body, CreateOrangeThreeVertices(), 2f);
-            base.Geom[13].Collision += OrangeSensorThreeCollisionHandler;
+            base.Geom[13].OnCollision += OrangeSensorThreeCollisionHandler;
 
             // Yellow Sensor Three
             base.Geom[14] = GeomFactory.Instance.CreateCircleGeom(physicsSimulator, base.Body, 8f, 6, new Vector2(185, 18) - new Vector2(120, 160), 0f, 8f);
-            base.Geom[14].Collision += YellowSensorThreeCollisionHandler;
+            base.Geom[14].OnCollision += YellowSensorThreeCollisionHandler;
 
 
             //// Green Sensor Three
@@ -149,8 +150,8 @@ namespace Pinball
                 //geometry.Tag = GameObjects.Sensor;
 
 
-                geometry.CollisionCategories = Enums.CollisionCategories.Cat7;
-                geometry.CollidesWith = Enums.CollisionCategories.Cat1 & Enums.CollisionCategories.Cat2 & Enums.CollisionCategories.Cat3;
+                geometry.CollisionCategories = CollisionCategory.Cat7;
+                geometry.CollidesWith = CollisionCategory.Cat1 & CollisionCategory.Cat2 & CollisionCategory.Cat3;
 
                 //geometry.Collision += CollisionHandler;
             }
@@ -256,7 +257,7 @@ namespace Pinball
                     tempBall.Body.Enabled = true;
 
                     //tempBall.Tag = GameObjects.NormalBall;
-                    tempBall.CollisionCategories = Enums.CollisionCategories.Cat2;
+                    tempBall.CollisionCategories = CollisionCategory.Cat2;
 
                     World.Score += (350 * World.Multiplier);
 
@@ -293,7 +294,7 @@ namespace Pinball
                     tempBall.Body.Enabled = true;
 
                     //tempBall.Tag = GameObjects.NormalBall;
-                    tempBall.CollisionCategories = Enums.CollisionCategories.Cat2;
+                    tempBall.CollisionCategories = CollisionCategory.Cat2;
 
                     World.Score += (250 * World.Multiplier);
 
@@ -330,7 +331,7 @@ namespace Pinball
                     tempBall.Body.Enabled = true;
 
                     //tempBall.Tag = GameObjects.NormalBall;
-                    tempBall.CollisionCategories = Enums.CollisionCategories.Cat2;
+                    tempBall.CollisionCategories = CollisionCategory.Cat2;
 
                     World.Score += (200 * World.Multiplier);
 
@@ -369,7 +370,7 @@ namespace Pinball
                     tempBall.Body.Enabled = true;
 
                     //tempBall.Tag = GameObjects.NormalBall;
-                    tempBall.CollisionCategories = Enums.CollisionCategories.Cat2;
+                    tempBall.CollisionCategories = CollisionCategory.Cat2;
 
                     World.Score += (200 * World.Multiplier);
 
@@ -423,12 +424,12 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     if (g2.Body.LinearVelocity.Y > 0)
                     {
                         //g2.Tag = GameObjects.HighBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat1;
+                        g2.CollisionCategories = CollisionCategory.Cat1;
 
                         ArrowHit[2] = true; 
                     }
@@ -446,10 +447,10 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat1)
+                if (g2.CollisionCategories == CollisionCategory.Cat1)
                 {
                     //g2.Tag = GameObjects.NormalBall;
-                    g2.CollisionCategories = Enums.CollisionCategories.Cat2;
+                    g2.CollisionCategories = CollisionCategory.Cat2;
 
                     World.Score += (150 * World.Multiplier);
 
@@ -479,7 +480,7 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     // Ball is touching the top part of the sensor 
                     if (g2.Body.Position.Y > 70 && g2.Body.Position.Y < 90)
@@ -496,13 +497,13 @@ namespace Pinball
                         //if (g2.Body.LinearVelocity.Y <= -5)
                         //{
                             //g2.Tag = GameObjects.HighBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat1;
+                        g2.CollisionCategories = CollisionCategory.Cat1;
 
                             ArrowHit[3] = true;
                         //}
                     }
                 }
-                else if (g2.CollisionCategories == Enums.CollisionCategories.Cat1)
+                else if (g2.CollisionCategories == CollisionCategory.Cat1)
                 {
                     // Ball is heading back down
                     if (g2.Body.LinearVelocity.Y > -5)
@@ -510,7 +511,7 @@ namespace Pinball
                         if (g2.Body.Position.Y > 90)
                         {
                             //g2.Tag = GameObjects.NormalBall; 
-                            g2.CollisionCategories = Enums.CollisionCategories.Cat2;
+                            g2.CollisionCategories = CollisionCategory.Cat2;
                         }
                     }
                 }
@@ -549,10 +550,10 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat1)
+                if (g2.CollisionCategories == CollisionCategory.Cat1)
                 {
                     //g2.Tag = GameObjects.LowBall;
-                    g2.CollisionCategories = Enums.CollisionCategories.Cat3;
+                    g2.CollisionCategories = CollisionCategory.Cat3;
 
                     SoundManager.SoundEffects["PowerUp3"].Play();
 
@@ -600,24 +601,24 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     // Ball is heading up
                     if (g2.Body.LinearVelocity.Y < 5 && g2.Body.LinearVelocity.X > 0)
                     {
                         //g2.Tag = GameObjects.HighBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat1;
+                        g2.CollisionCategories = CollisionCategory.Cat1;
 
                         ArrowHit[4] = true;
                     }
                 }
-                else if (g2.CollisionCategories == Enums.CollisionCategories.Cat1)
+                else if (g2.CollisionCategories == CollisionCategory.Cat1)
                 {
                     // Ball is heading back down
                     if (g2.Body.LinearVelocity.Y > -1)
                     {
                         //g2.Tag = GameObjects.NormalBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat2;
+                        g2.CollisionCategories = CollisionCategory.Cat2;
                     }
                 }
             //}
@@ -655,10 +656,10 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat1)
+                if (g2.CollisionCategories == CollisionCategory.Cat1)
                 {
                     //g2.Tag = GameObjects.NormalBall;
-                    g2.CollisionCategories = Enums.CollisionCategories.Cat2;
+                    g2.CollisionCategories = CollisionCategory.Cat2;
 
                     World.Score += (150 * World.Multiplier);
 
@@ -688,24 +689,24 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     // Ball is traveling up
                     if (g2.Body.LinearVelocity.Y < 0)
                     {
                         //g2.Tag = GameObjects.LowBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat3;
+                        g2.CollisionCategories = CollisionCategory.Cat3;
 
                         ArrowHit[1] = true;
                     }
                 }
-                else if (g2.CollisionCategories == Enums.CollisionCategories.Cat3)
+                else if (g2.CollisionCategories == CollisionCategory.Cat3)
                 {
                     // Ball is traveling down
                     if (g2.Body.LinearVelocity.Y > 0)
                     {
                         //g2.Tag = GameObjects.NormalBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat2;
+                        g2.CollisionCategories = CollisionCategory.Cat2;
                     }
                 }
             //}
@@ -721,22 +722,22 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     // Ball is traveling down
                     if (g2.Body.LinearVelocity.Y > -5)
                     {
                         //g2.Tag = GameObjects.LowBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat3;
+                        g2.CollisionCategories = CollisionCategory.Cat3;
                     }
                 }
-                else if (g2.CollisionCategories == Enums.CollisionCategories.Cat3)
+                else if (g2.CollisionCategories == CollisionCategory.Cat3)
                 {
                     // Ball is traveling up
                     if (g2.Body.LinearVelocity.Y < 0)
                     {
                         //g2.Tag = GameObjects.NormalBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat2;
+                        g2.CollisionCategories = CollisionCategory.Cat2;
                     }
                 }
             //}
@@ -752,13 +753,13 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     // Ball is traveling up
                     if (g2.Body.LinearVelocity.Y < 0)
                     {
                         //g2.Tag = GameObjects.LowBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat3;
+                        g2.CollisionCategories = CollisionCategory.Cat3;
 
                         SoundManager.SoundEffects["PowerUp1"].Play();
 
@@ -810,13 +811,13 @@ namespace Pinball
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
                 
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     // Ball is traveling up
                     if (g2.Body.LinearVelocity.Y < 0)
                     {
                         //g2.Tag = GameObjects.LowBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat3;
+                        g2.CollisionCategories = CollisionCategory.Cat3;
 
                         SoundManager.SoundEffects["PowerUp2"].Play();
 
@@ -865,13 +866,13 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Sensor))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     // Ball is going up
                     if (g2.Body.LinearVelocity.Y < 0)
                     {
                         //g2.Tag = GameObjects.LowBall;
-                        g2.CollisionCategories = Enums.CollisionCategories.Cat3;
+                        g2.CollisionCategories = CollisionCategory.Cat3;
 
 
                         SoundManager.SoundEffects["PowerUp2"].Play();
@@ -923,7 +924,7 @@ namespace Pinball
             //{
                 // TODO: Fix this so a bar appears and can be changed
 
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     if (LeftAlleyBlockerEnabled)
                     {
@@ -958,7 +959,7 @@ namespace Pinball
             //{
                 // TODO: Fix this so a bar appears and can be changed
 
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
                     if (RightAlleyBlockerEnabled)
                     {
@@ -993,7 +994,7 @@ namespace Pinball
             //{
                 // TODO: Fix this so a bar appears
 
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
 
                     if (ChuteBlockerEnabled)
@@ -1035,7 +1036,7 @@ namespace Pinball
         {
 
 
-            if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+            if (g2.CollisionCategories == CollisionCategory.Cat2)
             {
                 // TODO: Put stopper bar here
                 if (!ChuteBlockerEnabled)

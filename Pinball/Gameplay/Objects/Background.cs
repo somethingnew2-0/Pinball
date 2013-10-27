@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using FarseerGames.FarseerPhysics;
 using FarseerGames.FarseerPhysics.Dynamics;
 using FarseerGames.FarseerPhysics.Collisions;
+using FarseerGames.FarseerPhysics.Factories;
 
 namespace Pinball
 {
@@ -80,8 +81,8 @@ namespace Pinball
             {
                 //geometry.Tag = GameObjects.NormalWall;
 
-                geometry.CollisionCategories = Enums.CollisionCategories.Cat9;
-                geometry.CollidesWith = Enums.CollisionCategories.Cat2;
+                geometry.CollisionCategories = CollisionCategory.Cat9;
+                geometry.CollidesWith = CollisionCategory.Cat2;
 
                 //geometry.Collision += CollisionHandler;
             }

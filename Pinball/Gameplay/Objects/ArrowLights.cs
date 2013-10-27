@@ -55,7 +55,7 @@ namespace Pinball
             if (PulsateArrow[0])
             {
                 spriteBatch.Draw(textures[0], new Vector2(32f, 130f), null,
-                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Sin(time1 * 3) * 255)),
+                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Abs(Math.Sin(time1 * 3) * 255))),
                     0f, new Vector2(textures[0].Width / 2, textures[0].Height / 2), 1f, SpriteEffects.None, 0f);
 
                 time1 += elaspedTime;
@@ -69,7 +69,7 @@ namespace Pinball
             {
 
                 spriteBatch.Draw(textures[1], new Vector2(49f, 111f), null,
-                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Sin(time2 * 3) * 255)),
+                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Abs(Math.Sin(time2 * 3) * 255))),
                     0f, new Vector2(textures[1].Width / 2, textures[1].Height / 2), 1f, SpriteEffects.None, 0f);
 
 
@@ -83,7 +83,7 @@ namespace Pinball
             if (PulsateArrow[2])
             {
                 spriteBatch.Draw(textures[2], new Vector2(72f, 80f), null,
-                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Sin(time3 * 3) * 255)),
+                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Abs(Math.Sin(time3 * 3) * 255))),
                     0f, new Vector2(textures[2].Width / 2, textures[2].Height / 2), 1f, SpriteEffects.None, 0f);
 
                 time3 += elaspedTime;
@@ -97,7 +97,7 @@ namespace Pinball
             {
 
                 spriteBatch.Draw(textures[3], new Vector2(122f, 103f), null,
-                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Sin(time4 * 3) * 255)),
+                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Abs(Math.Sin(time4 * 3) * 255))),
                     0f, new Vector2(textures[3].Width / 2, textures[3].Height / 2), 1f, SpriteEffects.None, 0f);   
 
 
@@ -111,7 +111,7 @@ namespace Pinball
             if (PulsateArrow[4])
             {
                  spriteBatch.Draw(textures[4], new Vector2(179f, 146f), null,
-                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Sin(time5 * 3) * 255)),
+                    new Color((byte)255, (byte)255, (byte)255, (byte)((float)Math.Abs(Math.Sin(time5 * 3) * 255))),
                     0f, new Vector2(textures[4].Width / 2, textures[4].Height / 2), 1f, SpriteEffects.None, 0f);
 
                 time5 += elaspedTime;

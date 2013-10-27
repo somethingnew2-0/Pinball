@@ -8,6 +8,7 @@ using FarseerGames.FarseerPhysics.Dynamics;
 using FarseerGames.FarseerPhysics.Collisions;
 using FarseerGames.FarseerPhysics;
 using Microsoft.Xna.Framework.Audio;
+using FarseerGames.FarseerPhysics.Factories;
 
 namespace Pinball
 {
@@ -40,11 +41,11 @@ namespace Pinball
             //Vertices extendedAABB = Vertices.CreateRectangle(50, 50);
             //base.Geom[0].AABB.Update(ref extendedAABB);
             
-            base.Geom[0].CollisionCategories = Enums.CollisionCategories.Cat2;
+            base.Geom[0].CollisionCategories = CollisionCategory.Cat2;
             // TODO: Fix this so it collides correctly
-            base.Geom[0].CollidesWith = Enums.CollisionCategories.All & ~Enums.CollisionCategories.Cat8 & ~Enums.CollisionCategories.Cat10;
+            base.Geom[0].CollidesWith = CollisionCategory.All & ~CollisionCategory.Cat8 & ~CollisionCategory.Cat10;
 
-            base.Geom[0].Collision += CollisionHandler;
+            base.Geom[0].OnCollision += CollisionHandler;
 
             //base.Geom[0].RestitutionCoefficient = 0.5f;
             base.Body.RotationalDragCoefficient = 0.02f;
@@ -80,7 +81,7 @@ namespace Pinball
                         
                             // Change the tag so the ball is normal
                             //base.Body.Tag = GameObjects.NormalBall;
-                            base.Geom[0].CollisionCategories = Enums.CollisionCategories.Cat2;
+                            base.Geom[0].CollisionCategories = CollisionCategory.Cat2;
                         }
                     }
                     else
@@ -90,24 +91,24 @@ namespace Pinball
                 }
             }
 
-            if (base.Geom[0].CollisionCategories == Enums.CollisionCategories.Cat1)
+            if (base.Geom[0].CollisionCategories == CollisionCategory.Cat1)
             {
-                base.Geom[0].CollidesWith = Enums.CollisionCategories.All & ~Enums.CollisionCategories.Cat9 & ~Enums.CollisionCategories.Cat10;
+                base.Geom[0].CollidesWith = CollisionCategory.All & ~CollisionCategory.Cat9 & ~CollisionCategory.Cat10;
             }
-            else if (base.Geom[0].CollisionCategories == Enums.CollisionCategories.Cat2)
+            else if (base.Geom[0].CollisionCategories == CollisionCategory.Cat2)
             {
-                base.Geom[0].CollidesWith = Enums.CollisionCategories.All & ~Enums.CollisionCategories.Cat8 & ~Enums.CollisionCategories.Cat10;
+                base.Geom[0].CollidesWith = CollisionCategory.All & ~CollisionCategory.Cat8 & ~CollisionCategory.Cat10;
             }
-            else if (base.Geom[0].CollisionCategories == Enums.CollisionCategories.Cat3)
+            else if (base.Geom[0].CollisionCategories == CollisionCategory.Cat3)
             {
-                base.Geom[0].CollidesWith = Enums.CollisionCategories.All & ~Enums.CollisionCategories.Cat8 & ~Enums.CollisionCategories.Cat9;
+                base.Geom[0].CollidesWith = CollisionCategory.All & ~CollisionCategory.Cat8 & ~CollisionCategory.Cat9;
             }
 
-            if (base.Geom[0].CollisionCategories == Enums.CollisionCategories.Cat1 || base.Geom[0].CollisionCategories == Enums.CollisionCategories.Cat3)
+            if (base.Geom[0].CollisionCategories == CollisionCategory.Cat1 || base.Geom[0].CollisionCategories == CollisionCategory.Cat3)
             {
                 if ((Math.Abs(base.Body.Position.X - 114) < 60) && (Math.Abs(base.Body.Position.Y - 174) < 40))
                 {
-                    base.Geom[0].CollisionCategories = Enums.CollisionCategories.Cat2;
+                    base.Geom[0].CollisionCategories = CollisionCategory.Cat2;
                 }   
             }
 
@@ -117,7 +118,7 @@ namespace Pinball
         public void Draw(float elapsedTime, SpriteBatch spriteBatch)
         {
             //if (base.Geom[0].Tag.Equals(GameObjects.HighBall) || base.Geom[0].Tag.Equals(GameObjects.NormalBall))
-            if (base.Geom[0].CollisionCategories == Enums.CollisionCategories.Cat1 || base.Geom[0].CollisionCategories == Enums.CollisionCategories.Cat2)
+            if (base.Geom[0].CollisionCategories == CollisionCategory.Cat1 || base.Geom[0].CollisionCategories == CollisionCategory.Cat2)
             {
                 base.Draw(elapsedTime, spriteBatch, Texture, Color.White);                
             }
@@ -125,9 +126,9 @@ namespace Pinball
 
         public override bool CollisionHandler(Geom g1, Geom g2, ContactList contactList)
         {
-            if (((g1.CollisionCategories == Enums.CollisionCategories.Cat2) && (g2.CollisionCategories == Enums.CollisionCategories.Cat9 || g2.CollisionCategories == Enums.CollisionCategories.Cat4))
-                || ((g1.CollisionCategories == Enums.CollisionCategories.Cat1) && (g2.CollisionCategories == Enums.CollisionCategories.Cat8))
-                || ((g1.CollisionCategories == Enums.CollisionCategories.Cat3) && (g2.CollisionCategories == Enums.CollisionCategories.Cat10)))
+            if (((g1.CollisionCategories == CollisionCategory.Cat2) && (g2.CollisionCategories == CollisionCategory.Cat9 || g2.CollisionCategories == CollisionCategory.Cat4))
+                || ((g1.CollisionCategories == CollisionCategory.Cat1) && (g2.CollisionCategories == CollisionCategory.Cat8))
+                || ((g1.CollisionCategories == CollisionCategory.Cat3) && (g2.CollisionCategories == CollisionCategory.Cat10)))
             {
                 if (Math.Abs(g1.Body.LinearVelocity.X) > 25 || Math.Abs(g1.Body.LinearVelocity.Y) > 25)
                 {
@@ -141,7 +142,7 @@ namespace Pinball
 
             if ((Math.Abs(g1.Body.Position.X - 197) < 5) && (Math.Abs(g1.Body.Position.Y - 117) < 5))
             {
-                if (g1.CollisionCategories == Enums.CollisionCategories.Cat2 && g2.CollisionCategories == Enums.CollisionCategories.Cat8)
+                if (g1.CollisionCategories == CollisionCategory.Cat2 && g2.CollisionCategories == CollisionCategory.Cat8)
                 {
                     return false;
                 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pinball")]
-[assembly: AssemblyProduct("Pinball")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("PinballUpdated")]
+[assembly: AssemblyProduct("PinballUpdated")]
+[assembly: AssemblyDescription("The classic arcade game now on your Zune!  Coded By SomethingNew and Artwork By Sktr.")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Copyright © 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

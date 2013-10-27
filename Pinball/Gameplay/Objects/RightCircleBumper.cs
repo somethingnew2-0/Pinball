@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using FarseerGames.FarseerPhysics;
 using Microsoft.Xna.Framework.Content;
 using FarseerGames.FarseerPhysics.Collisions;
+using FarseerGames.FarseerPhysics.Factories;
 
 namespace Pinball
 {
@@ -29,10 +30,10 @@ namespace Pinball
  
             // base.Geom[0].Tag = GameObjects.Bumper;
 
-            base.Geom[0].CollisionCategories = Enums.CollisionCategories.Cat6;
-            base.Geom[0].CollidesWith = Enums.CollisionCategories.Cat2;
+            base.Geom[0].CollisionCategories = CollisionCategory.Cat6;
+            base.Geom[0].CollidesWith = CollisionCategory.Cat2;
 
-            base.Geom[0].Collision += CollisionHandler;
+            base.Geom[0].OnCollision += CollisionHandler;
         }
 
         public static void LoadContent(ContentManager contentManager)
@@ -65,7 +66,7 @@ namespace Pinball
         {
             //if (g1.Tag.Equals(GameObjects.Bumper))
             //{
-                if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+                if (g2.CollisionCategories == CollisionCategory.Cat2)
                 {
 
                     hit = true;

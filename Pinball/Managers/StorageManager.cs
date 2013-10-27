@@ -68,8 +68,8 @@ namespace Pinball
                 }
                 catch (Exception)
                 {
-                    GameDataInstance.ControlOption = FlipperStyles.DPad;
-                    GameDataInstance.TouchOption = (ZunePadState.TouchablePad ? true : false);
+                    GameDataInstance.ControlOption = FlipperStyles.PlayBack;
+                    GameDataInstance.TouchOption = (ZunePadState.TouchablePad ? false : false);
                     GameDataInstance.MusicVolumeOption = 1.0f;
                     GameDataInstance.SoundEffectVolumeOption = 0.5f;
                     GameDataInstance.HighScores = new List<Score>(5);
@@ -92,8 +92,8 @@ namespace Pinball
             }
             else
             {
-                GameDataInstance.ControlOption = FlipperStyles.DPad;
-                GameDataInstance.TouchOption = (ZunePadState.TouchablePad ? true : false);
+                GameDataInstance.ControlOption = FlipperStyles.PlayBack;
+                GameDataInstance.TouchOption = (ZunePadState.TouchablePad ? false : false);
                 GameDataInstance.MusicVolumeOption = 1.0f;
                 GameDataInstance.SoundEffectVolumeOption = 0.5f;
                 GameDataInstance.HighScores = new List<Score>(5);

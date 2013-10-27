@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using FarseerGames.FarseerPhysics.Dynamics.Joints;
+using FarseerGames.FarseerPhysics.Dynamics.Springs;
+using FarseerGames.FarseerPhysics.Factories;
 
 namespace Pinball
 {
@@ -39,7 +42,7 @@ namespace Pinball
 
             //base.Geom = new Geom[1];
             //base.Geom[0] = GeomFactory.Instance.CreatePolygonGeom(physicsSimulator, base.Body, CreateLeftFlipper(), 10f);
-            //base.Geom[0].CollidesWith = Enums.CollisionCategories.All;
+            //base.Geom[0].CollidesWith = CollisionCategory.All;
 
             //base.Body = BodyFactory.Instance.CreatePolygonBody(physicsSimulator, CreateLeftFlipper(), 10f);
 
@@ -54,8 +57,8 @@ namespace Pinball
             //base.Geom[0] = GeomFactory.Instance.CreatePolygonGeom(physicsSimulator, base.Body, CreateLeftFlipper(), 1.0f);
             base.Geom[0] = GeomFactory.Instance.CreateRectangleGeom(physicsSimulator, base.Body, 15, 51, Vector2.Zero, -MathHelper.ToRadians(40f), 0.5f);
             //base.Geom[0].LocalVertices.SubDivideEdges(51f);
-            base.Geom[0].CollisionCategories = Enums.CollisionCategories.Cat4;
-            base.Geom[0].CollidesWith = Enums.CollisionCategories.Cat2;
+            base.Geom[0].CollisionCategories = CollisionCategory.Cat4;
+            base.Geom[0].CollidesWith = CollisionCategory.Cat2;
 
             //Vertices extendedAABB = Vertices.CreateRectangle(30, 60);
             //base.Geom[0].AABB.Update(ref extendedAABB);
@@ -73,7 +76,7 @@ namespace Pinball
 
             //base.Geom[0].Tag = GameObjects.Flipper;
 
-            //base.Geom[0].Collision += CollisionHandler;
+            //base.Geom[0].OnCollision += CollisionHandler;
         }
 
         public static void LoadContent(ContentManager contentManager)
@@ -143,7 +146,7 @@ namespace Pinball
         //{
         //    //if (g1.Tag.Equals(GameObjects.Flipper))
         //    //{
-        //        if (g2.CollisionCategories == Enums.CollisionCategories.Cat2)
+        //        if (g2.CollisionCategories == CollisionCategory.Cat2)
         //        {
         //            //hit = true; 
 

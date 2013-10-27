@@ -245,7 +245,7 @@ namespace Pinball
         {
             // Make the lost ball a normal ball
             //ball.Body.Tag = GameObjects.NormalBall;
-            Ball.Geom[0].CollisionCategories = Enums.CollisionCategories.Cat2;
+            Ball.Geom[0].CollisionCategories = CollisionCategory.Cat2;
 
             // Set the ball to be at the right spot with no initial velocity
             Ball.Body.Position = new Vector2(217, 273);

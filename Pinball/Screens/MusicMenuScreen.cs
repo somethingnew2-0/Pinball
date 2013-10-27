@@ -32,9 +32,9 @@ namespace Pinball
             // Create our menu entries.
             //nowPlayingMenuEntry = new MenuEntry(string.Empty);
             playlistMenuEntry = new MenuEntry(string.Empty);
-            prevSongMenuEntry = new MenuEntry("                         Previous");
+            prevSongMenuEntry = new MenuEntry("Previous");
             playpauseSongMenuEntry = new MenuEntry(string.Empty);
-            nextSongMenuEntry = new MenuEntry("                 Next");
+            nextSongMenuEntry = new MenuEntry("Next");
 
             SetMenuEntryText();
 
@@ -77,11 +77,11 @@ namespace Pinball
 
             if (MediaPlayer.State == MediaState.Playing)
 	        {
-                playpauseSongMenuEntry.Text = "                     Stop";
+                playpauseSongMenuEntry.Text = "Stop";
 	        }
             else
             {
-                playpauseSongMenuEntry.Text = "                     Play";
+                playpauseSongMenuEntry.Text = "Play";
             }
         }
 

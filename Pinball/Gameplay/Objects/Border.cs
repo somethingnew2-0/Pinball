@@ -10,6 +10,7 @@ using FarseerGames.FarseerPhysics;
 using FarseerGames.FarseerPhysics.Dynamics;
 using FarseerGames.FarseerPhysics.Collisions;
 using Microsoft.Xna.Framework.Content;
+using FarseerGames.FarseerPhysics.Factories;
 
 namespace Pinball
 {
@@ -62,7 +63,7 @@ namespace Pinball
             base.Geom[2].RestitutionCoefficient = .2f;
             base.Geom[2].FrictionCoefficient = .2f;
             base.Geom[2].CollisionGroup = 100;
-            base.Geom[2].ComputeCollisonGrid();
+            base.Geom[2].ComputeCollisionGrid();
 
             //bottom border (clone top border since geometry is same size)
             geometryOffset = new Vector2(0,height * .5f - borderWidth * .5f);
@@ -72,10 +73,10 @@ namespace Pinball
             {
                 //geometry.Tag = GameObjects.Border;
 
-                geometry.CollisionCategories = Enums.CollisionCategories.Cat11;
-                geometry.CollidesWith = Enums.CollisionCategories.Cat1 & Enums.CollisionCategories.Cat2 & Enums.CollisionCategories.Cat3;
+                geometry.CollisionCategories = CollisionCategory.Cat11;
+                geometry.CollidesWith = CollisionCategory.Cat1 & CollisionCategory.Cat2 & CollisionCategory.Cat3;
 
-                geometry.Collision += CollisionHandler;
+                geometry.OnCollision += CollisionHandler;
             }
         }
 
